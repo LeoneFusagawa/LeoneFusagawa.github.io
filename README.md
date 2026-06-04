@@ -2,39 +2,34 @@
 
 Site GitHub Pages des archives RP de Leone Fusagawa.
 
-Le site est publie ici :
+Site public :
 
 https://leonefusagawa.github.io/
 
-## Contenu
+## Principe
 
-Le site regroupe :
+Ce site est une archive documentaire RP. Il ne doit pas inventer de lore.
 
-- Accueil immersif
-- Fiche personnage
-- Chronologie RP
-- Missions
-- Rapports consultables
-- Laboratoire occulte
-- Galerie
-- Archives classees par categories
+Les informations actuellement intégrées viennent des sources fournies :
 
-## Modification
+- `Hebdo 10_05_26 - 17_05_26.pdf`
+- `Hebdo 17_05_26 - 23_05_26.pdf`
+- `Hebdo 23_05_2026 - 30_05_26.pdf`
+- `Leone Fusagawa _ SCI _ Mission 1.pdf`
+- images et captures fournies dans le dossier média
 
-La version actuellement publiee est autonome : tout est dans `index.html`, ce qui permet a GitHub Pages de fonctionner directement sans configuration complexe.
+Si une information n'est pas documentée, elle reste vide ou porte la mention :
 
-Pour modifier le contenu, edite `index.html` et cherche les sections :
+`Archive en attente de classement.`
 
-- `id="personnage"`
-- `id="chronologie"`
-- `id="missions"`
-- `id="rapports"`
-- `id="laboratoire"`
-- `id="galerie"`
-- `id="archives"`
+## Fichiers importants
 
-## Publication
+- `index.html` : site public autonome, compatible GitHub Pages
+- `AGENTS.md` : règles de travail pour Codex
+- `LORE.md` : base canonique permanente
 
-Le depot s'appelle `LeoneFusagawa.github.io`, donc GitHub Pages publie automatiquement la branche `main` a l'adresse :
+## Continuer l'archive
 
-https://leonefusagawa.github.io/
+Avant toute modification, lire `AGENTS.md` et `LORE.md`.
+
+Ajouter un nouvel événement uniquement si une source fournie le confirme explicitement.

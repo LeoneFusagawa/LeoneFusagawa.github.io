@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leone Fusagawa</title>
-  <link rel="stylesheet" href="style.css?v=20260605-rapports">
+  <link rel="stylesheet" href="style.css?v=20260605-music-ash">
 </head>
 <body>
   <section class="intro-screen" id="intro" aria-label="Ouverture du parchemin">
@@ -20,18 +20,25 @@
   </section>
 
   <main class="site-shell" id="siteShell" aria-hidden="true">
-    <audio id="ambientMusic" src="./assets/music/entree-tenebreuse.mp3" loop preload="auto"></audio>
+    <audio id="ambientMusic" src="https://sl.elysionrp.com/entree/Entree%20Tenebreuse.mp3" loop preload="auto"></audio>
+    <div class="acid-ash-layer" id="acidAshLayer" aria-hidden="true"></div>
 
-    <div class="volume-control" aria-label="Controle du volume">
-      <span class="volume-label">Son</span>
-      <input id="volumeSlider" type="range" min="0" max="1" step="0.01" aria-label="Volume de la musique">
-      <span id="volumePercent" class="volume-percent">35%</span>
+    <div class="volume-control" aria-label="Controle de la musique">
+      <button class="music-toggle" id="musicToggle" type="button">Pause</button>
+      <input id="musicProgress" type="range" min="0" max="100" step="0.1" value="0" aria-label="Progression de la musique">
     </div>
 
     <section class="hero-section" id="accueil" aria-label="Leone Fusagawa">
       <!-- Image attendue : ./assets/images/flammes-corrosives-gauche.png -->
       <!-- Image attendue : ./assets/images/flammes-corrosives-droite.png -->
+      <!-- Image attendue : ./assets/images/cendre-acide.png -->
       <!-- Image attendue : ./assets/images/leone-principal.png -->
+      <img
+        class="hero-image-echo site-image"
+        src="./assets/images/leone-principal.png"
+        alt=""
+        aria-hidden="true"
+      >
       <img
         class="hero-image site-image"
         src="./assets/images/leone-principal.png"
@@ -90,6 +97,6 @@
     </footer>
   </main>
 
-  <script src="script.js?v=20260605-rapports"></script>
+  <script src="script.js?v=20260605-music-ash"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ const openScroll = document.getElementById("openScroll");
 const siteShell = document.getElementById("siteShell");
 const music = document.getElementById("ambientMusic");
 const volumeSlider = document.getElementById("volumeSlider");
+const volumePercent = document.getElementById("volumePercent");
 const particleCanvas = document.getElementById("particleCanvas");
 const particleContext = particleCanvas.getContext("2d");
 
@@ -167,16 +168,19 @@ function setupAudio() {
   const volume = readSavedVolume();
   music.volume = volume;
   volumeSlider.value = String(volume);
+  volumePercent.textContent = `${Math.round(volume * 100)}%`;
 
   volumeSlider.addEventListener("input", () => {
     const value = Number(volumeSlider.value);
     music.volume = value;
     localStorage.setItem(VOLUME_KEY, String(value));
+    volumePercent.textContent = `${Math.round(value * 100)}%`;
   });
 }
 
 function openSite() {
-  openScroll.classList.add("is-unfurling");
+  intro.classList.add("is-cracking");
+  openScroll.disabled = true;
 
   window.setTimeout(() => {
     intro.classList.add("is-open");
@@ -184,7 +188,7 @@ function openSite() {
     siteShell.setAttribute("aria-hidden", "false");
     document.body.classList.remove("is-locked");
     music.play().catch(() => {});
-  }, 850);
+  }, 6400);
 }
 
 function resizeParticles() {

@@ -1,0 +1,22 @@
+{
+  "intro": {
+    "text": "Osez consulter ce parchemin.",
+    "music": "assets/music/entree-tenebreuse.mp3"
+  },
+  "personnage": {
+    "nom": "LEONE FUSAGAWA",
+    "rang": "Rang A de l'Acide",
+    "pouvoir": "",
+    "spheres": [],
+    "description": "",
+    "citation": "La faiblesse est une impureté.\nL'acide est la solution.",
+    "signature": "Leone Fusagawa",
+    "image": ""
+  },
+  "codeAcide": "",
+  "rapportsHebdomadaires": [],
+  "experiencesScientifiques": [],
+  "modeEdition": {
+    "actif": false
+  }
+}

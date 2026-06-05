@@ -179,7 +179,7 @@ function setupAudio() {
 }
 
 function openSite() {
-  intro.classList.add("is-cracking");
+  intro.classList.add("is-unveiling");
   openScroll.disabled = true;
 
   window.setTimeout(() => {
@@ -188,7 +188,7 @@ function openSite() {
     siteShell.setAttribute("aria-hidden", "false");
     document.body.classList.remove("is-locked");
     music.play().catch(() => {});
-  }, 6400);
+  }, 950);
 }
 
 function resizeParticles() {

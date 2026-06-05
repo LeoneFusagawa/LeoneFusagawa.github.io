@@ -40,8 +40,11 @@ function setupAudio() {
 
   musicToggle.addEventListener("click", () => {
     if (music.paused) {
-      music.play().catch(() => {});
-      musicToggle.textContent = "Pause";
+      music.play().then(() => {
+        musicToggle.textContent = "Pause";
+      }).catch(() => {
+        musicToggle.textContent = "Lecture";
+      });
     } else {
       music.pause();
       musicToggle.textContent = "Lecture";

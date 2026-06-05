@@ -1,22 +1,13 @@
 {
   "intro": {
-    "text": "Déroulez le parchemin corrosif",
-    "music": "https://sl.elysionrp.com/entree/Entree%20Tenebreuse.mp3"
+    "text": "Osez dérouler ce parchemin.",
+    "music": "./assets/music/entree-tenebreuse.mp3"
   },
-  "personnage": {
-    "nom": "LEONE FUSAGAWA",
-    "rang": "Rang A de l'Acide",
-    "pouvoir": "",
-    "spheres": [],
-    "description": "",
-    "citation": "La faiblesse est une impureté.\nL'acide est la solution.",
-    "signature": "Leone Fusagawa",
-    "image": ""
+  "images": {
+    "parchemin": "./assets/images/parchemin.png",
+    "leonePrincipal": "./assets/images/leone-principal.png",
+    "imageManquante": "./assets/images/image-manquante.png"
   },
-  "codeAcide": "",
-  "rapportsHebdomadaires": [],
-  "experiencesScientifiques": [],
-  "modeEdition": {
-    "actif": false
-  }
+  "rapports": [],
+  "laboratoire": []
 }

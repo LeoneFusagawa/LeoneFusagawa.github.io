@@ -1,12 +1,12 @@
 const DATA_URL = "data.json";
-const VOLUME_KEY = "leone-fusagawa-volume";
 
 const intro = document.getElementById("intro");
 const openScroll = document.getElementById("openScroll");
 const siteShell = document.getElementById("siteShell");
 const music = document.getElementById("ambientMusic");
-const volumeSlider = document.getElementById("volumeSlider");
-const volumePercent = document.getElementById("volumePercent");
+const musicToggle = document.getElementById("musicToggle");
+const musicProgress = document.getElementById("musicProgress");
+const acidAshLayer = document.getElementById("acidAshLayer");
 const reportsGrid = document.getElementById("reportsGrid");
 const rapportTemplate = document.getElementById("rapportTemplate");
 
@@ -19,22 +19,33 @@ function setText(id, value) {
   }
 }
 
-function readSavedVolume() {
-  const saved = Number(localStorage.getItem(VOLUME_KEY));
-  return Number.isFinite(saved) ? saved : 0.35;
-}
-
 function setupAudio() {
-  const volume = readSavedVolume();
-  music.volume = volume;
-  volumeSlider.value = String(volume);
-  volumePercent.textContent = `${Math.round(volume * 100)}%`;
+  music.volume = 0.35;
 
-  volumeSlider.addEventListener("input", () => {
-    const value = Number(volumeSlider.value);
-    music.volume = value;
-    localStorage.setItem(VOLUME_KEY, String(value));
-    volumePercent.textContent = `${Math.round(value * 100)}%`;
+  music.addEventListener("timeupdate", () => {
+    if (!music.duration) {
+      return;
+    }
+
+    musicProgress.value = String((music.currentTime / music.duration) * 100);
+  });
+
+  musicProgress.addEventListener("input", () => {
+    if (!music.duration) {
+      return;
+    }
+
+    music.currentTime = (Number(musicProgress.value) / 100) * music.duration;
+  });
+
+  musicToggle.addEventListener("click", () => {
+    if (music.paused) {
+      music.play().catch(() => {});
+      musicToggle.textContent = "Pause";
+    } else {
+      music.pause();
+      musicToggle.textContent = "Lecture";
+    }
   });
 }
 
@@ -47,8 +58,28 @@ function openSite() {
     siteShell.classList.add("is-visible");
     siteShell.setAttribute("aria-hidden", "false");
     document.body.classList.remove("is-locked");
-    music.play().catch(() => {});
+    music.play().then(() => {
+      musicToggle.textContent = "Pause";
+    }).catch(() => {
+      musicToggle.textContent = "Lecture";
+    });
   }, 1250);
+}
+
+function createAcidAsh() {
+  for (let index = 0; index < 34; index += 1) {
+    const ash = document.createElement("img");
+    ash.className = "acid-ash";
+    ash.src = "./assets/images/cendre-acide.png";
+    ash.alt = "";
+    ash.setAttribute("aria-hidden", "true");
+    ash.style.setProperty("--ash-left", `${Math.random() * 100}%`);
+    ash.style.setProperty("--ash-delay", `${Math.random() * -16}s`);
+    ash.style.setProperty("--ash-duration", `${10 + Math.random() * 14}s`);
+    ash.style.setProperty("--ash-size", `${10 + Math.random() * 18}px`);
+    ash.style.setProperty("--ash-drift", `${-28 + Math.random() * 56}px`);
+    acidAshLayer.appendChild(ash);
+  }
 }
 
 function renderCharacter(personnage = {}) {
@@ -116,6 +147,7 @@ async function loadData() {
 }
 
 setupAudio();
+createAcidAsh();
 loadData();
 
 openScroll.addEventListener("click", openSite);

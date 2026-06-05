@@ -64,6 +64,9 @@ function renderCharacter(data) {
     image.src = imageSource;
     image.alt = personnage.nom || "Leone Fusagawa";
     imageFrame.classList.add("has-image");
+  } else {
+    image.removeAttribute("src");
+    imageFrame.classList.remove("has-image");
   }
 
   [

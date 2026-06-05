@@ -56,8 +56,12 @@ function renderCharacter(data) {
 
   const image = document.getElementById("characterImage");
   const imageFrame = image.closest(".character-focus");
-  if (personnage.image) {
-    image.src = personnage.image;
+  const imageSource = Array.isArray(personnage.imageChunks) && personnage.imageChunks.length
+    ? `data:${personnage.imageMime || "image/jpeg"};base64,${personnage.imageChunks.join("")}`
+    : personnage.image;
+
+  if (imageSource) {
+    image.src = imageSource;
     image.alt = personnage.nom || "Leone Fusagawa";
     imageFrame.classList.add("has-image");
   }

@@ -164,12 +164,20 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
-  width: min(420px, calc(100vw - 28px));
+  width: min(440px, calc(100vw - 28px));
   padding: 9px 12px;
   border: 1px solid rgba(210, 166, 68, 0.72);
   background: rgba(8, 3, 3, 0.84);
   color: var(--gold-bright);
   transform: translateX(-50%);
+}
+
+.volume-label {
+  color: var(--gold-bright);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .music-toggle {
@@ -189,7 +197,7 @@ a {
 }
 
 .volume-control input,
-#musicProgress {
+#volumeSlider {
   flex: 1;
   min-width: 0;
   height: 34px;

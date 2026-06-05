@@ -2,9 +2,91 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leone Fusagawa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Site en reconstruction</h1>
+  <div class="gold-vignette" aria-hidden="true"></div>
+
+  <section class="intro" id="intro" aria-label="Ouverture du parchemin">
+    <canvas id="particleCanvas" class="particles" aria-hidden="true"></canvas>
+    <button class="scroll-gate" id="openScroll" type="button">
+      <span class="scroll-rod top"></span>
+      <span class="scroll-sheet">
+        <span class="sigil" aria-hidden="true"></span>
+        <span class="intro-text" id="introText">Osez consulter ce parchemin.</span>
+      </span>
+      <span class="scroll-rod bottom"></span>
+    </button>
+  </section>
+
+  <main class="site-shell" id="siteShell" aria-hidden="true">
+    <audio id="ambientMusic" loop preload="auto"></audio>
+
+    <div class="volume-control" aria-label="Controle du volume">
+      <label for="volumeSlider">Volume</label>
+      <input id="volumeSlider" type="range" min="0" max="1" step="0.01">
+    </div>
+
+    <section class="hero" id="accueil" aria-label="Leone Fusagawa">
+      <div class="name-block">
+        <span class="rank" id="heroRank"></span>
+        <h1 id="heroName">LEONE FUSAGAWA</h1>
+        <blockquote>
+          <p id="heroQuote"></p>
+          <cite id="heroSignature"></cite>
+        </blockquote>
+      </div>
+
+      <figure class="character-focus" aria-label="Representation de Leone Fusagawa">
+        <img id="characterImage" alt="Leone Fusagawa">
+        <div class="character-absence" id="characterAbsence" aria-hidden="true">
+          <span class="crest"></span>
+        </div>
+      </figure>
+
+      <nav class="side-menu" aria-label="Menu principal">
+        <a href="#personnage">Personnage</a>
+        <a href="#rapports">Rapports Hebdomadaires</a>
+        <a href="#experiences">Expériences Scientifiques</a>
+      </nav>
+    </section>
+
+    <section class="content-band" id="personnage">
+      <div class="section-heading">
+        <span>Personnage</span>
+        <h2>Leone Fusagawa</h2>
+      </div>
+      <div class="info-grid" id="characterDetails"></div>
+      <details class="acid-code" id="acidCodeBlock">
+        <summary>Code de l'Acide</summary>
+        <div id="acidCodeText"></div>
+      </details>
+    </section>
+
+    <section class="content-band" id="rapports">
+      <div class="section-heading">
+        <span>Rapports Hebdomadaires</span>
+        <h2>Documents référencés</h2>
+      </div>
+      <div class="item-list" id="reportsList"></div>
+    </section>
+
+    <section class="content-band" id="experiences">
+      <div class="section-heading">
+        <span>Expériences Scientifiques</span>
+        <h2>Travaux référencés</h2>
+      </div>
+      <div class="item-list" id="experimentsList"></div>
+    </section>
+
+    <div class="edit-mode" id="editMode" hidden>Mode Édition désactivé</div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -29,6 +29,8 @@
     </div>
 
     <section class="hero-section" id="accueil" aria-label="Leone Fusagawa">
+      <!-- Image attendue : ./assets/images/flammes-corrosives-gauche.png -->
+      <!-- Image attendue : ./assets/images/flammes-corrosives-droite.png -->
       <!-- Image attendue : ./assets/images/leone-principal.png -->
       <img
         class="hero-image site-image"
@@ -36,39 +38,51 @@
         alt="Leone Fusagawa"
       >
       <div class="hero-caption">
-        <h1>Leone Fusagawa</h1>
-        <p>Adepte de l'Acide</p>
+        <h1 id="heroName">Leone Fusagawa</h1>
+        <p id="heroTitle">Démon de L'Acide Rang A</p>
       </div>
     </section>
 
-    <section class="reports-section" id="rapports" aria-label="Rapports">
+    <section class="details-section" id="details" aria-label="Fiche de detail">
       <div class="section-title">
-        <p>Rapports</p>
-        <h2>Rapports</h2>
+        <p>Fiche</p>
+        <h2>Démon de L'Acide Rang A</h2>
+      </div>
+
+      <article class="demon-card">
+        <dl class="demon-details">
+          <div>
+            <dt>Nom</dt>
+            <dd id="detailName">Leone Fusagawa</dd>
+          </div>
+          <div>
+            <dt>Nature</dt>
+            <dd id="detailTitle">Démon de L'Acide Rang A</dd>
+          </div>
+          <div>
+            <dt>Sphères</dt>
+            <dd id="detailSpheres">Sphère Occulte, Sphère Scientifique</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="reports-section" id="rapports" aria-label="Rapports Hebdomadaires">
+      <div class="section-title">
+        <p>PDF</p>
+        <h2>Rapports Hebdomadaires</h2>
       </div>
 
       <div class="reports-grid" id="reportsGrid">
-        <!-- Les rapports seront ajoutes manuellement plus tard. -->
+        <!-- Les rapports PDF seront charges depuis data.json. -->
       </div>
 
       <template id="rapportTemplate">
         <article class="rapport-card">
-          <h3 class="rapport-title">titre</h3>
-          <p class="rapport-description">description</p>
-          <a class="rapport-button" href="#">consulter</a>
+          <a class="rapport-link" href="#" target="_blank" rel="noreferrer"></a>
+          <time class="rapport-date"></time>
         </article>
       </template>
-    </section>
-
-    <section class="laboratory-section" id="laboratoire" aria-label="Laboratoire">
-      <div class="section-title">
-        <p>Laboratoire</p>
-        <h2>Laboratoire</h2>
-      </div>
-
-      <div class="laboratory-gallery" id="laboratoryGallery">
-        <!-- Galerie vide : les images seront ajoutees dans ./assets/images/. -->
-      </div>
     </section>
 
     <footer class="site-footer">

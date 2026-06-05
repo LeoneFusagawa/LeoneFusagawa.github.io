@@ -5,7 +5,7 @@ const openScroll = document.getElementById("openScroll");
 const siteShell = document.getElementById("siteShell");
 const music = document.getElementById("ambientMusic");
 const musicToggle = document.getElementById("musicToggle");
-const musicProgress = document.getElementById("musicProgress");
+const volumeSlider = document.getElementById("volumeSlider");
 const acidAshLayer = document.getElementById("acidAshLayer");
 const reportsGrid = document.getElementById("reportsGrid");
 const rapportTemplate = document.getElementById("rapportTemplate");
@@ -21,33 +21,22 @@ function setText(id, value) {
 
 function setupAudio() {
   music.volume = 0.35;
+  volumeSlider.value = "0.35";
 
-  music.addEventListener("timeupdate", () => {
-    if (!music.duration) {
-      return;
-    }
-
-    musicProgress.value = String((music.currentTime / music.duration) * 100);
-  });
-
-  musicProgress.addEventListener("input", () => {
-    if (!music.duration) {
-      return;
-    }
-
-    music.currentTime = (Number(musicProgress.value) / 100) * music.duration;
+  volumeSlider.addEventListener("input", () => {
+    music.volume = Number(volumeSlider.value);
   });
 
   musicToggle.addEventListener("click", () => {
     if (music.paused) {
       music.play().then(() => {
-        musicToggle.textContent = "Pause";
+        musicToggle.textContent = "PAUSE";
       }).catch(() => {
-        musicToggle.textContent = "Lecture";
+        musicToggle.textContent = "LECTURE";
       });
     } else {
       music.pause();
-      musicToggle.textContent = "Lecture";
+      musicToggle.textContent = "LECTURE";
     }
   });
 }
@@ -56,9 +45,9 @@ function openSite() {
   intro.classList.add("is-opening");
   openScroll.disabled = true;
   music.play().then(() => {
-    musicToggle.textContent = "Pause";
+    musicToggle.textContent = "PAUSE";
   }).catch(() => {
-    musicToggle.textContent = "Lecture";
+    musicToggle.textContent = "LECTURE";
   });
 
   window.setTimeout(() => {

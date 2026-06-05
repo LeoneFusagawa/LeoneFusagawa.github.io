@@ -1,13 +1,14 @@
 {
   "intro": {
     "text": "Osez dérouler ce parchemin.",
-    "music": "./assets/music/entree-tenebreuse.mp3"
+    "music": "https://sl.elysionrp.com/entree/Entree%20Tenebreuse.mp3"
   },
   "images": {
     "parchemin": "./assets/images/parchemin.png",
     "leonePrincipal": "./assets/images/leone-principal.png",
     "flammesGauche": "./assets/images/flammes-corrosives-gauche.png",
-    "flammesDroite": "./assets/images/flammes-corrosives-droite.png"
+    "flammesDroite": "./assets/images/flammes-corrosives-droite.png",
+    "cendreAcide": "./assets/images/cendre-acide.png"
   },
   "personnage": {
     "nom": "Leone Fusagawa",
@@ -17,5 +18,21 @@
       "Sphère Scientifique"
     ]
   },
-  "rapportsHebdomadaires": []
+  "rapportsHebdomadaires": [
+    {
+      "titre": "Rapport Hebdomadaire 1",
+      "date": "2026-05-17",
+      "pdf": "./assets/pdfs/rapport-hebdomadaire-1.pdf"
+    },
+    {
+      "titre": "Rapport Hebdomadaire 2",
+      "date": "2026-05-23",
+      "pdf": "./assets/pdfs/rapport-hebdomadaire-2.pdf"
+    },
+    {
+      "titre": "Rapport Hebdomadaire 3",
+      "date": "2026-05-30",
+      "pdf": "./assets/pdfs/rapport-hebdomadaire-3.pdf"
+    }
+  ]
 }

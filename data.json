@@ -6,8 +6,16 @@
   "images": {
     "parchemin": "./assets/images/parchemin.png",
     "leonePrincipal": "./assets/images/leone-principal.png",
-    "imageManquante": "./assets/images/image-manquante.png"
+    "flammesGauche": "./assets/images/flammes-corrosives-gauche.png",
+    "flammesDroite": "./assets/images/flammes-corrosives-droite.png"
   },
-  "rapports": [],
-  "laboratoire": []
+  "personnage": {
+    "nom": "Leone Fusagawa",
+    "titre": "Démon de L'Acide Rang A",
+    "spheres": [
+      "Sphère Occulte",
+      "Sphère Scientifique"
+    ]
+  },
+  "rapportsHebdomadaires": []
 }

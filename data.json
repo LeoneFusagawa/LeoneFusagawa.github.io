@@ -13,9 +13,11 @@
   "personnage": {
     "nom": "Leone Fusagawa",
     "titre": "Démon de L'Acide Rang A",
+    "pouvoirSanguinaire": "Acide",
+    "rang": "A",
     "spheres": [
-      "Sphère Occulte",
-      "Sphère Scientifique"
+      "Occulte",
+      "Scientifique"
     ]
   },
   "rapportsHebdomadaires": [

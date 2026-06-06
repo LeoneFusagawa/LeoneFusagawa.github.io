@@ -9,6 +9,8 @@ const volumeSlider = document.getElementById("volumeSlider");
 const acidAshLayer = document.getElementById("acidAshLayer");
 const reportsGrid = document.getElementById("reportsGrid");
 const rapportTemplate = document.getElementById("rapportTemplate");
+const VOLUME_STORAGE_KEY = "leone-music-volume";
+const DEFAULT_VOLUME = 0.35;
 
 document.body.classList.add("is-locked");
 
@@ -19,35 +21,73 @@ function setText(id, value) {
   }
 }
 
+function getSavedVolume() {
+  try {
+    const savedVolume = Number(localStorage.getItem(VOLUME_STORAGE_KEY));
+
+    if (Number.isFinite(savedVolume)) {
+      return Math.min(1, Math.max(0, savedVolume));
+    }
+  } catch (error) {
+    return DEFAULT_VOLUME;
+  }
+
+  return DEFAULT_VOLUME;
+}
+
+function setMusicButtonState() {
+  musicToggle.textContent = music.paused ? "LECTURE" : "PAUSE";
+}
+
+function setVolume(value) {
+  const volume = Math.min(1, Math.max(0, Number(value)));
+
+  music.volume = volume;
+  volumeSlider.value = String(volume);
+
+  try {
+    localStorage.setItem(VOLUME_STORAGE_KEY, String(volume));
+  } catch (error) {
+    return;
+  }
+}
+
 function setupAudio() {
-  music.volume = 0.35;
-  volumeSlider.value = "0.35";
+  setVolume(getSavedVolume());
+  setMusicButtonState();
 
   volumeSlider.addEventListener("input", () => {
-    music.volume = Number(volumeSlider.value);
+    setVolume(volumeSlider.value);
+  });
+
+  volumeSlider.addEventListener("change", () => {
+    setVolume(volumeSlider.value);
   });
 
   musicToggle.addEventListener("click", () => {
     if (music.paused) {
       music.play().then(() => {
-        musicToggle.textContent = "PAUSE";
+        setMusicButtonState();
       }).catch(() => {
-        musicToggle.textContent = "LECTURE";
+        setMusicButtonState();
       });
     } else {
       music.pause();
-      musicToggle.textContent = "LECTURE";
+      setMusicButtonState();
     }
   });
+
+  music.addEventListener("play", setMusicButtonState);
+  music.addEventListener("pause", setMusicButtonState);
 }
 
 function openSite() {
   intro.classList.add("is-opening");
   openScroll.disabled = true;
   music.play().then(() => {
-    musicToggle.textContent = "PAUSE";
+    setMusicButtonState();
   }).catch(() => {
-    musicToggle.textContent = "LECTURE";
+    setMusicButtonState();
   });
 
   window.setTimeout(() => {
@@ -55,7 +95,7 @@ function openSite() {
     siteShell.classList.add("is-visible");
     siteShell.setAttribute("aria-hidden", "false");
     document.body.classList.remove("is-locked");
-  }, 1250);
+  }, 1650);
 }
 
 function createAcidAsh() {

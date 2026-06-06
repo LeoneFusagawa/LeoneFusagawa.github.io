@@ -9,8 +9,8 @@ const volumeSlider = document.getElementById("volumeSlider");
 const acidAshLayer = document.getElementById("acidAshLayer");
 const reportsGrid = document.getElementById("reportsGrid");
 const rapportTemplate = document.getElementById("rapportTemplate");
-const VOLUME_STORAGE_KEY = "leone-music-volume";
-const DEFAULT_VOLUME = 0.35;
+const VOLUME_STORAGE_KEY = "leone-music-volume-v2";
+const DEFAULT_VOLUME = 0.5;
 let musicHasLoaded = false;
 
 document.body.classList.add("is-locked");
@@ -125,13 +125,15 @@ function createAcidAsh() {
 }
 
 function renderCharacter(personnage = {}) {
-  const spheres = Array.isArray(personnage.spheres) ? personnage.spheres.join(", ") : "";
+  const spheres = Array.isArray(personnage.spheres) ? personnage.spheres : [];
 
   setText("heroName", personnage.nom);
   setText("heroTitle", personnage.titre);
-  setText("detailName", personnage.nom);
-  setText("detailTitle", personnage.titre);
-  setText("detailSpheres", spheres);
+  setText("detailHeadingName", personnage.nom);
+  setText("detailPower", personnage.pouvoirSanguinaire);
+  setText("detailRank", personnage.rang);
+  setText("detailSphereOcculte", spheres[0]);
+  setText("detailSphereScientifique", spheres[1]);
 }
 
 function sortReportsByNewest(reports) {

@@ -9,7 +9,7 @@ const volumeSlider = document.getElementById("volumeSlider");
 const acidAshLayer = document.getElementById("acidAshLayer");
 const reportsGrid = document.getElementById("reportsGrid");
 const rapportTemplate = document.getElementById("rapportTemplate");
-const VOLUME_STORAGE_KEY = "leone-music-volume-v2";
+const VOLUME_STORAGE_KEY = "leone-music-volume-v3";
 const DEFAULT_VOLUME = 0.5;
 let musicHasLoaded = false;
 

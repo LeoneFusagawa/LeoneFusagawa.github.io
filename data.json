@@ -1,6 +1,6 @@
 {
   "intro": {
-    "text": "Osez dérouler ce parchemin.",
+    "text": "Osez rompre le sceau et dérouler ce parchemin.",
     "music": "https://sl.elysionrp.com/entree/Entree%20Tenebreuse.mp3"
   },
   "images": {
@@ -12,7 +12,7 @@
   },
   "personnage": {
     "nom": "Leone Fusagawa",
-    "titre": "Démon de L'Acide Rang A",
+    "titre": "Démon de l’Acide — Rang A",
     "pouvoirSanguinaire": "Acide",
     "rang": "A",
     "spheres": [

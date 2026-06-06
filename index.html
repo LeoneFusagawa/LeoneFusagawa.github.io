@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leone Fusagawa</title>
-  <link rel="stylesheet" href="style.css?v=20260606-gold-fiche">
+  <link rel="stylesheet" href="style.css?v=20260606-elden-ritual">
 </head>
 <body>
   <section class="intro-screen" id="intro" aria-label="Ouverture du parchemin">
+    <div class="intro-mist" aria-hidden="true"></div>
+    <div class="intro-particles" id="introParticles" aria-hidden="true"></div>
     <button class="parchment-trigger" id="openScroll" type="button">
       <!-- Image attendue : ./assets/images/parchemin.png -->
       <img
@@ -15,7 +17,7 @@
         src="./assets/images/parchemin.png"
         alt="Parchemin ferme"
       >
-      <span class="intro-text">Osez dérouler ce parchemin.</span>
+      <span class="intro-text" id="introText">Osez rompre le sceau et dérouler ce parchemin.</span>
     </button>
   </section>
 
@@ -45,7 +47,7 @@
       >
       <div class="hero-caption">
         <h1 id="heroName">Leone Fusagawa</h1>
-        <p id="heroTitle">Démon de L'Acide Rang A</p>
+        <p id="heroTitle">Démon de l’Acide — Rang A</p>
       </div>
     </section>
 
@@ -100,6 +102,6 @@
     </footer>
   </main>
 
-  <script src="script.js?v=20260606-gold-fiche-3"></script>
+  <script src="script.js?v=20260606-elden-ritual"></script>
 </body>
 </html>

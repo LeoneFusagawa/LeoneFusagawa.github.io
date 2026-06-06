@@ -11,6 +11,7 @@ const reportsGrid = document.getElementById("reportsGrid");
 const rapportTemplate = document.getElementById("rapportTemplate");
 const VOLUME_STORAGE_KEY = "leone-music-volume";
 const DEFAULT_VOLUME = 0.35;
+let musicHasLoaded = false;
 
 document.body.classList.add("is-locked");
 
@@ -52,6 +53,15 @@ function setVolume(value) {
   }
 }
 
+function playMusic() {
+  if (!musicHasLoaded) {
+    music.load();
+    musicHasLoaded = true;
+  }
+
+  return music.play();
+}
+
 function setupAudio() {
   setVolume(getSavedVolume());
   setMusicButtonState();
@@ -66,7 +76,7 @@ function setupAudio() {
 
   musicToggle.addEventListener("click", () => {
     if (music.paused) {
-      music.play().then(() => {
+      playMusic().then(() => {
         setMusicButtonState();
       }).catch(() => {
         setMusicButtonState();
@@ -84,7 +94,7 @@ function setupAudio() {
 function openSite() {
   intro.classList.add("is-opening");
   openScroll.disabled = true;
-  music.play().then(() => {
+  playMusic().then(() => {
     setMusicButtonState();
   }).catch(() => {
     setMusicButtonState();

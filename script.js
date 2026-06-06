@@ -162,20 +162,20 @@ function renderCharacter(personnage = {}) {
 }
 
 function sortReportsByNewest(reports) {
-  return [...reports].sort((a, b) => {
+  return reports.map((report, index) => ({ ...report, index })).sort((a, b) => {
     const timeA = Date.parse(a.date || "");
     const timeB = Date.parse(b.date || "");
 
     if (Number.isNaN(timeA) && Number.isNaN(timeB)) {
-      return 0;
+      return a.index - b.index;
     }
 
     if (Number.isNaN(timeA)) {
-      return 1;
+      return -1;
     }
 
     if (Number.isNaN(timeB)) {
-      return -1;
+      return 1;
     }
 
     return timeB - timeA;
@@ -199,9 +199,24 @@ function renderReports(reports = []) {
     const date = card.querySelector(".rapport-date");
 
     link.textContent = report.titre || "";
-    link.href = report.pdf || "#";
-    date.textContent = report.date || "";
-    date.dateTime = report.date || "";
+
+    if (report.pdf) {
+      link.href = report.pdf;
+    } else {
+      card.classList.add("is-pending");
+      link.removeAttribute("href");
+      link.removeAttribute("target");
+      link.removeAttribute("rel");
+      link.setAttribute("aria-disabled", "true");
+      link.classList.add("is-disabled");
+    }
+
+    if (report.date) {
+      date.textContent = report.date;
+      date.dateTime = report.date;
+    } else {
+      date.remove();
+    }
 
     reportsGrid.appendChild(card);
   });

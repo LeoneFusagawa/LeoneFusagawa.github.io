@@ -6,6 +6,7 @@ const siteShell = document.getElementById("siteShell");
 const music = document.getElementById("ambientMusic");
 const musicToggle = document.getElementById("musicToggle");
 const volumeSlider = document.getElementById("volumeSlider");
+const introParticles = document.getElementById("introParticles");
 const acidAshLayer = document.getElementById("acidAshLayer");
 const reportsGrid = document.getElementById("reportsGrid");
 const rapportTemplate = document.getElementById("rapportTemplate");
@@ -111,7 +112,25 @@ function openSite() {
     siteShell.classList.add("is-visible");
     siteShell.setAttribute("aria-hidden", "false");
     document.body.classList.remove("is-locked");
-  }, 1650);
+  }, 1850);
+}
+
+function createIntroParticles() {
+  if (!introParticles) {
+    return;
+  }
+
+  for (let index = 0; index < 36; index += 1) {
+    const particle = document.createElement("span");
+
+    particle.className = "gold-particle";
+    particle.style.setProperty("--particle-left", `${Math.random() * 100}%`);
+    particle.style.setProperty("--particle-top", `${Math.random() * 100}%`);
+    particle.style.setProperty("--particle-delay", `${Math.random() * -12}s`);
+    particle.style.setProperty("--particle-duration", `${12 + Math.random() * 12}s`);
+    particle.style.setProperty("--particle-size", `${2 + Math.random() * 3}px`);
+    introParticles.appendChild(particle);
+  }
 }
 
 function createAcidAsh() {
@@ -192,11 +211,20 @@ async function loadData() {
   const response = await fetch(DATA_URL);
   const data = await response.json();
 
+  if (data.intro) {
+    setText("introText", data.intro.text);
+
+    if (data.intro.music && !musicHasLoaded) {
+      music.src = data.intro.music;
+    }
+  }
+
   renderCharacter(data.personnage);
   renderReports(data.rapportsHebdomadaires);
 }
 
 setupAudio();
+createIntroParticles();
 createAcidAsh();
 loadData();
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leone Fusagawa</title>
-  <link rel="stylesheet" href="style.css?v=20260606-audio-polish">
+  <link rel="stylesheet" href="style.css?v=20260606-gold-fiche">
 </head>
 <body>
   <section class="intro-screen" id="intro" aria-label="Ouverture du parchemin">
@@ -24,9 +24,8 @@
     <div class="acid-ash-layer" id="acidAshLayer" aria-hidden="true"></div>
 
     <div class="volume-control" aria-label="Controle du volume">
-      <span class="volume-label">SON</span>
       <button class="music-toggle" id="musicToggle" type="button">PAUSE</button>
-      <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="0.35" aria-label="Volume de la musique">
+      <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="0.5" aria-label="Volume de la musique">
     </div>
 
     <section class="hero-section" id="accueil" aria-label="Leone Fusagawa">
@@ -53,22 +52,26 @@
     <section class="details-section" id="details" aria-label="Fiche de detail">
       <div class="section-title">
         <p>Fiche</p>
-        <h2>Démon de L'Acide Rang A</h2>
+        <h2 id="detailHeadingName">Leone Fusagawa</h2>
       </div>
 
       <article class="demon-card">
         <dl class="demon-details">
-          <div>
-            <dt>Nom</dt>
-            <dd id="detailName">Leone Fusagawa</dd>
+          <div class="demon-detail-square">
+            <dt>Pouvoir Sanguinaire</dt>
+            <dd id="detailPower">Acide</dd>
           </div>
-          <div>
-            <dt>Nature</dt>
-            <dd id="detailTitle">Démon de L'Acide Rang A</dd>
+          <div class="demon-detail-square">
+            <dt>Rang</dt>
+            <dd id="detailRank">A</dd>
           </div>
-          <div>
-            <dt>Sphères</dt>
-            <dd id="detailSpheres">Sphère Occulte, Sphère Scientifique</dd>
+          <div class="demon-detail-square">
+            <dt>Sphère</dt>
+            <dd id="detailSphereOcculte">Occulte</dd>
+          </div>
+          <div class="demon-detail-square">
+            <dt>Sphère</dt>
+            <dd id="detailSphereScientifique">Scientifique</dd>
           </div>
         </dl>
       </article>
@@ -97,6 +100,6 @@
     </footer>
   </main>
 
-  <script src="script.js?v=20260606-audio-polish-2"></script>
+  <script src="script.js?v=20260606-gold-fiche"></script>
 </body>
 </html>

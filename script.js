@@ -24,7 +24,13 @@ function setText(id, value) {
 
 function getSavedVolume() {
   try {
-    const savedVolume = Number(localStorage.getItem(VOLUME_STORAGE_KEY));
+    const storedVolume = localStorage.getItem(VOLUME_STORAGE_KEY);
+
+    if (storedVolume === null) {
+      return DEFAULT_VOLUME;
+    }
+
+    const savedVolume = Number(storedVolume);
 
     if (Number.isFinite(savedVolume)) {
       return Math.min(1, Math.max(0, savedVolume));

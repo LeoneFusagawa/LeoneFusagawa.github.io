@@ -14,7 +14,7 @@
     "nom": "Leone Fusagawa",
     "titre": "Démon de l’Acide — Rang A",
     "pouvoirSanguinaire": "Acide",
-    "rang": "A+",
+    "rang": "A",
     "spheres": [
       "Occulte",
       "Scientifique"
@@ -22,14 +22,19 @@
   },
   "rapportsHebdomadaires": [
     {
+      "titre": "Rapport Hebdomadaire 5",
+      "date": "2026-06-13",
+      "pdf": "./assets/pdfs/rapport-hebdomadaire-5.pdf"
+    },
+    {
       "titre": "Rapport Hebdomadaire 4",
       "date": "2026-06-06",
       "pdf": "./assets/pdfs/rapport-hebdomadaire-4.pdf"
     },
     {
-      "titre": "Rapport Hebdomadaire 1",
-      "date": "2026-05-17",
-      "pdf": "./assets/pdfs/rapport-hebdomadaire-1.pdf"
+      "titre": "Rapport Hebdomadaire 3",
+      "date": "2026-05-30",
+      "pdf": "./assets/pdfs/rapport-hebdomadaire-3.pdf"
     },
     {
       "titre": "Rapport Hebdomadaire 2",
@@ -37,9 +42,9 @@
       "pdf": "./assets/pdfs/rapport-hebdomadaire-2.pdf"
     },
     {
-      "titre": "Rapport Hebdomadaire 3",
-      "date": "2026-05-30",
-      "pdf": "./assets/pdfs/rapport-hebdomadaire-3.pdf"
+      "titre": "Rapport Hebdomadaire 1",
+      "date": "2026-05-17",
+      "pdf": "./assets/pdfs/rapport-hebdomadaire-1.pdf"
     }
   ]
 }

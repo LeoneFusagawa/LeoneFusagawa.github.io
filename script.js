@@ -1,4 +1,4 @@
-const DATA_URL = "data.json";
+const DATA_URL = `data.json?v=${Date.now()}`;
 
 const intro = document.getElementById("intro");
 const openScroll = document.getElementById("openScroll");
